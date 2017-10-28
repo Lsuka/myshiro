@@ -117,5 +117,6 @@
 	<modules>
 		<module>myshiro-base</module>
 		<module>myshiro-realm</module>
+		<module>myshiro-auth</module>
 	</modules>
 </project>
