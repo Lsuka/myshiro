@@ -1,4 +1,4 @@
-package cn.unicorn.myshiro.base;
+package cn.unicorn.myshiro.realm.test;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;

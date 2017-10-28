@@ -105,5 +105,6 @@
 	</build>
 	<modules>
 		<module>myshiro-base</module>
+		<module>myshiro-realm</module>
 	</modules>
 </project>
