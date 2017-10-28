@@ -8,6 +8,7 @@ import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
@@ -18,9 +19,14 @@ import cn.unicorn.myshiro.realm.vo.Member;
 public class MemberRealm extends AuthorizingRealm {
 
 	@Override
-	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection arg0) {
+	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		System.err.println("2.用户授权处理(doGetAuthorizationInfo)");
-		return null;
+		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+		String mid = (String) principals.getPrimaryPrincipal();
+		IMemberService memberService = new MemberServiceImpl();
+		info.setRoles(memberService.listActionByMember(mid));
+		info.setStringPermissions(memberService.listActionByMember(mid));
+		return info;
 	}
 
 	@Override
