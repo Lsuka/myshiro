@@ -1,5 +1,7 @@
 package cn.unicorn.myshiro.auth.test;
 
+import java.util.Arrays;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -30,12 +32,16 @@ public class TeshShiroBase extends TestCase {
 		try {
 			subject.login(token);// 登录认证,登录失败抛弃异常
 			System.err.println("用户认证通过,用户名为" + subject.getPrincipal());// 获取用户名
-			if (subject.hasRole("member")) {
-				System.err.println("member role");
-			}
 			subject.checkRole("member");
-			System.err.println("啊啊啊啊啊 啊啊啊");
+			//一个权限
+//			if (subject.isPermitted("news:edit")) {
+//				System.err.println("拥有news:edit权限");
+//			}
+			//一组权限
+			boolean[] permitted = subject.isPermitted("news:edit","member:list");
+			System.err.println(Arrays.toString(permitted));
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }
