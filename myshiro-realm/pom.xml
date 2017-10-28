@@ -15,6 +15,12 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
+		<!--mysql start -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!--mysql end -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
