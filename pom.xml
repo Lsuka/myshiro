@@ -28,6 +28,10 @@
 		<!--mysql start -->
 		<mysql.version>5.1.5</mysql.version>
 		<!--mysql end -->
+		<!--web所依赖的包 start -->
+		<jsp.ver>2.3.1</jsp.ver>
+		<servlet.ver>4.0.0</servlet.ver>
+		<!--web所依赖的包 end -->
 	</properties>
 
 	<dependencyManagement>
@@ -52,6 +56,12 @@
 				<artifactId>shiro-core</artifactId>
 				<version>${shiro.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-web</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+
 			<!-- shiro开发包 end -->
 			<!--日志依赖包 start -->
 			<dependency>
@@ -70,6 +80,20 @@
 				<version>${slf4j.version}</version>
 			</dependency>
 			<!--日志依赖包 end -->
+			<!--web所依赖的包 start -->
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${servlet.ver}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.servlet.jsp</groupId>
+				<artifactId>javax.servlet.jsp-api</artifactId>
+				<version>${jsp.ver}</version>
+				<scope>provided</scope>
+			</dependency>
+			<!--web所依赖的包 end -->
 		</dependencies>
 	</dependencyManagement>
 	<build>
@@ -118,5 +142,6 @@
 		<module>myshiro-base</module>
 		<module>myshiro-realm</module>
 		<module>myshiro-auth</module>
+		<module>myshiro-web</module>
 	</modules>
 </project>
